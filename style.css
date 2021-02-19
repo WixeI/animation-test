@@ -1,0 +1,76 @@
+body {
+    padding: 0 5rem 0 5rem;
+}
+
+.balls {
+    display: flex;
+    justify-content: space-around;
+}
+
+.arrows {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Progress Arrow Animation Bar */
+.animation-square {
+    box-sizing: border-box;
+    width: 40px;
+    height: 100px;
+    background-color: rgb(151, 146, 101);
+    animation-name: square-anim ;
+    animation-duration: 2s;
+    /* Se usar valor negativo no delay, vai ser como se ela já tivesse começado faz "segundos" de tempo, começando então no meio */
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+    
+    /* Define como vai rodar a cada iteração. Alternado é sentido normal depois ao contrário */
+    animation-direction: alternate;
+    /* Curva de Bezier da Animação. ease é slow start, fast middle e slow end, este é o default */
+    /* ease, linear, ease-in, ease-out, ease-in-out, cubic-bezier(n,n,n,n) */
+    animation-timing-function: ease-out;
+}
+
+@keyframes square-anim {
+    from {
+        background-color: rgb(255, 174, 0);
+        width: 40px;height: 100px;}
+    to {
+        background-color: rgb(59, 255, 134);
+        width: 350px;height: 100px;}
+}
+
+.a {
+    transform: skewX(20deg);
+}
+
+.b {
+    transform:skewX(-20deg);
+}
+
+/* Ball Jumping */
+.ball {
+    margin-right: 1rem;
+    margin-top: 1rem;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, rgb(144, 233, 255) 0%, rgba(82,94,255,1) 100%);
+
+    animation-name: jumping-ball;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 1s;
+    animation-timing-function:cubic-bezier(.77,.03,.77,.51);
+}
+
+@keyframes jumping-ball {
+    from {
+        margin-top: 1rem;
+    }
+
+    to {
+        margin-top: 15rem;
+    }
+}
+
